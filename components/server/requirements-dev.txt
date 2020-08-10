@@ -7,3 +7,4 @@ pip==20.2.3
 pylint==2.6.0
 safety==1.9.0
 vulture==2.1
+wheel==0.34.2
