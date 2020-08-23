@@ -1,4 +1,4 @@
-name: Collector 
+name: Collector
 
 on: [push]
 
@@ -9,12 +9,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.9.0-rc.1'
     - name: Install dependencies
       run: |
+        sudo apt-get install libxml2-dev libxslt-dev python-dev
         cd components/collector
         python -m pip install --upgrade pip
         pip install -r requirements.txt -r requirements-dev.txt
