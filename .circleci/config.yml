@@ -3,7 +3,7 @@ version: 2
 jobs:
   unittest_backend:
     docker:
-      - image: circleci/python:3.9-rc-buster
+      - image: circleci/python:3.9.0rc2-buster
     parallelism: 2
     steps:
       - checkout
@@ -60,11 +60,11 @@ jobs:
           export COMPOSE_PATH_SEPARATOR=':'
           export COMPOSE_FILE=docker/docker-compose.yml:docker/docker-compose.ci.yml
           docker-compose build && docker-compose up -d
-          docker run -it -w `pwd` -v `pwd`:`pwd` --network=container:qualitytime_www_1 circleci/python:3.9-rc-browsers ci/test.sh
+          docker run -it -w `pwd` -v `pwd`:`pwd` --network=container:qualitytime_www_1 circleci/python:3.9.0rc2-browsers ci/test.sh
 
   integration_tests:
     docker:
-      - image: circleci/python:3.9-rc-buster
+      - image: circleci/python:3.9.0rc2-buster
       - image: osixia/openldap:1.4.0
       - image: ictu/url-to-pdf-api:v1.0.0
         environment:

@@ -1,4 +1,4 @@
-image: python:3.9.0rc1-buster
+image: python:3.9.0rc2-buster
 
 before_script:
   - apt-get install libxml2-dev libxslt-dev
